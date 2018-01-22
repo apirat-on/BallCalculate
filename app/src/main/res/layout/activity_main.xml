@@ -7,9 +7,21 @@
     android:layout_height="match_parent"
     tools:context="apirat.krirk.th.in.ballcalculate.MainActivity">
 
-<!--Content of Fragment-->
+
+    <!--Wallpaper-->
+    <ImageView
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo33"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!--Content Of Fragment-->
     <FrameLayout
         android:id="@+id/contentMainFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"></FrameLayout>
+
+
+
+
 </android.support.constraint.ConstraintLayout>

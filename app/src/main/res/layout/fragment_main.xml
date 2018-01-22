@@ -5,16 +5,61 @@
     android:orientation="vertical">
 
     <!--Toolbal-->
+
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolberName"
+        android:id="@+id/toolberMain"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
-
-
-    <!--Content-->
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
 
 
-</LinearLayout>
+    <LinearLayout
+        android:background="@drawable/logo2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:orientation="vertical"
+        android:padding="@dimen/padding"></LinearLayout>
+
+
+    <TextView
+        android:id="@+id/txtShowName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Click Show Name"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/h1"
+        android:textStyle="bold" />
+
+
+
+    <!--ShowName Button-->
+    <Button
+        android:id="@+id/btnGoShowName"
+        android:text="Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         />
+    <!--Calculate-->
+    <Button
+        android:id="@+id/btnCalculate"
+        android:text="Calculate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         />
+
+    <!--Clear Button-->
+    <Button
+        android:id="@+id/btnClear"
+        android:text="Clear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+
+
+
+  </LinearLayout>

@@ -22,7 +22,7 @@ public class CalculateFragment extends Fragment implements View.OnClickListener 
     private String displayString = "";
     private double num1ADouble, displayADouble;
     private String tag = "23JanV1";
-    private boolean addABoolean = false;
+    private boolean addABoolean = false, minusABoolean = false;
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -187,26 +187,29 @@ public class CalculateFragment extends Fragment implements View.OnClickListener 
                 cleardisplay();
                 break;
             case R.id.btnd:
-                Log.d(tag, "num1Abouble ==> " + num1ADouble);
-                Log.d(tag, "displayAdDouble + " + displayADouble);
-                Log.d(tag, "addABoot");
+                displayADouble = Double.parseDouble(displayString);
                 if (addABoolean) {
                     num1ADouble = num1ADouble + displayADouble;
                     addABoolean = false;
+                } else  if (minusABoolean){
+                    num1ADouble= num1ADouble - displayADouble;
+                    minusABoolean = false;
                 }
-                Log.d(tag, "num1ABouble after if ==> + num1ABouble");
+
                 textView.setText(Double.toString(num1ADouble));
+                displayString ="0";
 
 
                 break;
 
             case  R.id.btnz:
-                showDisplay("");
+                minusABoolean = true;
                 if (num1ADouble == 0) {
                     num1ADouble = Double.parseDouble(displayString);
                 } else {
                     num1ADouble = num1ADouble - Double.parseDouble(displayString);
                 }
+                Log.d(tag,"num1 at btnz ==> " + num1ADouble);
                 cleardisplay();
                 break;
 
@@ -215,9 +218,24 @@ public class CalculateFragment extends Fragment implements View.OnClickListener 
     } //onClick
 
     private void cleardisplay() {
-        textView.setText("");
-        displayString ="";
-        displayADouble = 0;
+
+        if (addABoolean) {
+            textView.setText("");
+            displayString ="";
+            displayADouble = 0;
+        }else if (minusABoolean){
+            textView.setText("");
+            displayString ="";
+            displayADouble = 0;
+
+        }else {
+            textView.setText("");
+            displayString ="";
+            displayADouble = 0;
+            num1ADouble =0;
+        }
+
+
     }
 
 }   // Main Class

@@ -51,7 +51,7 @@ public class MainFragment extends Fragment {
 
 
     private void gotoCalculate() {
-        Button button = getView().findViewById(R.id.btnGoCalculate);
+        Button button = getView().findViewById(R.id.btnCalculate);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +17,13 @@ import apirat.krirk.th.in.ballcalculate.R;
 public class CalculateFragment extends Fragment implements View.OnClickListener {
     //  Explicit
     private TextView textView;
-    private Button cButton,button1,button2,button3,button4,button5,button6,button7,button8,button9,buttons,buttond,buttona,buttonX;
+    private Button cButton,button1,button2,button3,button4,button5,button6,button7,button8,button9,buttons,buttond,buttona,buttonX,button0,buttonz;
+
     private String displayString = "";
+    private double num1ADouble, displayADouble;
+    private String tag = "23JanV1";
+    private boolean addABoolean = false;
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -70,6 +76,8 @@ public class CalculateFragment extends Fragment implements View.OnClickListener 
         buttond.setOnClickListener(this);
         buttona.setOnClickListener(this);
         buttonX.setOnClickListener(this);
+        button0.setOnClickListener(this);
+        buttonz.setOnClickListener(this);
     }
 
     private void oneController() {
@@ -88,6 +96,7 @@ public class CalculateFragment extends Fragment implements View.OnClickListener 
         textView.setText(displayString);
     }
 
+
     private void initialView() {
         textView = getView().findViewById(R.id.txtDisplay);
         cButton = getView().findViewById(R.id.btnC);
@@ -104,7 +113,8 @@ public class CalculateFragment extends Fragment implements View.OnClickListener 
         buttond = getView().findViewById(R.id.btnd);
         buttonX = getView().findViewById(R.id.btnX);
         buttona = getView().findViewById(R.id.btna);
-
+        button0 = getView().findViewById(R.id.btn0);
+        buttonz = getView().findViewById(R.id.btnz);
 
 
 
@@ -137,7 +147,7 @@ public class CalculateFragment extends Fragment implements View.OnClickListener 
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.btn5:
                 showDisplay("5");
                 break;
@@ -154,8 +164,60 @@ public class CalculateFragment extends Fragment implements View.OnClickListener 
             case R.id.btn9:
                 showDisplay("9");
                 break;
+            case R.id.btn0:
+                showDisplay("0");
+                break;
+
+
+            case R.id.btnC:
+//                cleardisplay
+                cleardisplay();
+                break;
+
+            case R.id.btna:
+//                ClaerDisplay
+                addABoolean = false;
+                displayADouble = Double.parseDouble(displayString);
+                if (num1ADouble == 0) {
+                    num1ADouble = displayADouble;
+                } else {
+                    num1ADouble = num1ADouble + displayADouble;
+                }
+                Log.d(tag, "num1 ==> " + num1ADouble);
+                cleardisplay();
+                break;
+            case R.id.btnd:
+                Log.d(tag, "num1Abouble ==> " + num1ADouble);
+                Log.d(tag, "displayAdDouble + " + displayADouble);
+                Log.d(tag, "addABoot");
+                if (addABoolean) {
+                    num1ADouble = num1ADouble + displayADouble;
+                    addABoolean = false;
+                }
+                Log.d(tag, "num1ABouble after if ==> + num1ABouble");
+                textView.setText(Double.toString(num1ADouble));
+
+
+                break;
+
+            case  R.id.btnz:
+                showDisplay("");
+                if (num1ADouble == 0) {
+                    num1ADouble = Double.parseDouble(displayString);
+                } else {
+                    num1ADouble = num1ADouble - Double.parseDouble(displayString);
+                }
+                cleardisplay();
+                break;
+
 
         } //switrh
     } //onClick
+
+    private void cleardisplay() {
+        textView.setText("");
+        displayString ="";
+        displayADouble = 0;
+    }
 }   // Main Class
 

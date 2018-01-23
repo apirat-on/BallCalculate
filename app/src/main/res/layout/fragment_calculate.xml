@@ -20,6 +20,7 @@
         android:layout_height="wrap_content">
         <!--Display-->
         <TextView
+            android:maxLines="1"
             android:id="@+id/txtDisplay"
             android:padding="@dimen/padding"
             android:gravity="end"
@@ -172,7 +173,7 @@
             android:layout_height="match_parent" />
         <!--button-->
         <Button
-            android:id="@+id/btn-"
+            android:id="@+id/btnz"
             android:textStyle="bold"
             android:text="-"
             android:textSize="24sp"
@@ -194,13 +195,13 @@
 
         <!--button-->
         <Button
-            android:id="@+id/btn6"
-            android:textStyle="bold"
-            android:text="6"
-            android:textSize="24sp"
-            android:layout_weight="1"
+            android:id="@+id/btn0"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="0"
+            android:textSize="24sp"
+            android:textStyle="bold" />
         <!--button-->
         <Button
             android:id="@+id/btnd"
@@ -214,7 +215,7 @@
         <Button
             android:id="@+id/btna"
             android:textStyle="bold"
-            android:text="-"
+            android:text="+"
             android:textSize="24sp"
             android:layout_weight="1"
             android:layout_width="0dp"

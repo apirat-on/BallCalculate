@@ -175,13 +175,19 @@ public class CalculateFragment extends Fragment implements View.OnClickListener 
                 break;
 
             case R.id.btna:
-//                ClaerDisplay
+
                 addABoolean = false;
                 displayADouble = Double.parseDouble(displayString);
                 if (num1ADouble == 0) {
                     num1ADouble = displayADouble;
                 } else {
-                    num1ADouble = num1ADouble + displayADouble;
+                    if (minusABoolean) {
+                        num1ADouble = num1ADouble - displayADouble;
+                        minusABoolean = false;
+                    } else {
+                        num1ADouble = num1ADouble + displayADouble;
+                    }
+
                 }
                 Log.d(tag, "num1 ==> " + num1ADouble);
                 cleardisplay();
@@ -207,10 +213,14 @@ public class CalculateFragment extends Fragment implements View.OnClickListener 
                 if (num1ADouble == 0) {
                     num1ADouble = Double.parseDouble(displayString);
                 } else {
-                    num1ADouble = num1ADouble - Double.parseDouble(displayString);
+                    if (addABoolean){
+                        num1ADouble = num1ADouble + Double.parseDouble(displayString);
+                        addABoolean =false;
+                    }else
+                        num1ADouble = num1ADouble - Double.parseDouble(displayString);
                 }
-                Log.d(tag,"num1 at btnz ==> " + num1ADouble);
-                cleardisplay();
+              Log.d(tag,"num1 at btnz ==> " + num1ADouble);
+             cleardisplay();
                 break;
 
 

@@ -219,5 +219,6 @@ public class CalculateFragment extends Fragment implements View.OnClickListener 
         displayString ="";
         displayADouble = 0;
     }
+
 }   // Main Class
 

@@ -33,10 +33,16 @@ public class MainFragment extends Fragment {
         // Calculate Controller
         gotoCalculate();
 
-        // Clear
-        createToolbar();
+
 
     }   //Main Methor
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
+        return view;
+    }
 
     private void clearController() {
         Button button = getView().findViewById(R.id.btnClear);

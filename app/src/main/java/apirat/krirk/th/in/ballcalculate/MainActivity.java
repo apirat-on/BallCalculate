@@ -2,10 +2,11 @@ package apirat.krirk.th.in.ballcalculate;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import apirat.krirk.th.in.ballcalculate.fragment.MainFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,5 +20,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
 
 }
